@@ -106,10 +106,10 @@ h1{font-size:clamp(38px,5vw,62px);line-height:1.05;letter-spacing:-.04em;margin:
 <div class="stat"><strong>{{len .Traces}}</strong><span>traces</span></div>
 <div class="stat"><strong>{{.SpanCount}}</strong><span>spans</span></div>
 <div class="stat"><strong>{{.ErrorCount}}</strong><span>error spans</span></div>
-<div class="stat"><strong>{{.WarningCount}}</strong><span>structure warnings</span></div>
+<div class="stat"><strong>{{.WarningCount}}</strong><span>structure {{if eq .WarningCount 1}}warning{{else}}warnings{{end}}</span></div>
 </section>
 {{range .Traces}}<details class="trace" open>
-<summary><span class="trace-title"><b>{{.Duration}} trace</b><code>{{.ID}}</code></span><span class="trace-meta"><span class="pill">{{len .Spans}} spans</span>{{if .Errors}}<span class="pill error">{{.Errors}} errors</span>{{end}}{{if .Warnings}}<span class="pill warning">{{len .Warnings}} warnings</span>{{end}}</span></summary>
+<summary><span class="trace-title"><b>{{.Duration}} trace</b><code>{{.ID}}</code></span><span class="trace-meta"><span class="pill">{{len .Spans}} {{if eq (len .Spans) 1}}span{{else}}spans{{end}}</span>{{if .Errors}}<span class="pill error">{{.Errors}} {{if eq .Errors 1}}error{{else}}errors{{end}}</span>{{end}}{{if .Warnings}}<span class="pill warning">{{len .Warnings}} {{if eq (len .Warnings) 1}}warning{{else}}warnings{{end}}</span>{{end}}</span></summary>
 <div class="trace-body"><p class="timeframe">{{.Start}} to {{.End}} UTC</p>
 <div class="span-grid"><div></div><div class="axis"><span>Start</span><span>25%</span><span>50%</span><span>75%</span><span>End</span></div><div></div>
 {{range .Spans}}<div class="span-label" title="{{.Service}} / {{.Name}} / {{.ID}}"><b>{{.Name}}</b><small>{{.Service}} · {{.ID}}</small></div><div class="track" title="{{.Start}} to {{.End}}"><div class="bar {{.Status}}" style="left:{{.Left}}%;width:{{.Width}}%"></div></div><div class="duration">{{.Duration}}</div>{{end}}</div>
