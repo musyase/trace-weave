@@ -79,7 +79,7 @@ func run(args []string, stdin io.Reader, stdout io.Writer) error {
 		return render.HTML(destination, traces)
 	default:
 		for _, item := range traces {
-			if _, err := fmt.Fprintf(destination, "%s  %s  %d spans  %d errors  %d warnings\n", item.ID, item.Duration(), len(item.Spans), item.Errors, len(item.Warnings)); err != nil {
+			if _, err := fmt.Fprintf(destination, "%s  %s  spans=%d  errors=%d  warnings=%d\n", item.ID, item.Duration(), len(item.Spans), item.Errors, len(item.Warnings)); err != nil {
 				return err
 			}
 			for _, span := range item.Spans {

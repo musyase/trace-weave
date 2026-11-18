@@ -19,8 +19,8 @@ Open `report.html` in a browser. To inspect one request, add `-trace a4d71c5e9f0
 The text output for the sample begins with:
 
 ```text
-a4d71c5e9f0032b8a74d18c6e215af90  1.8s  5 spans  3 errors  0 warnings
-bb51ac90231e4d78ad520f43b7c6e109  320ms  2 spans  0 errors  1 warnings
+a4d71c5e9f0032b8a74d18c6e215af90  1.8s  spans=5  errors=3  warnings=0
+bb51ac90231e4d78ad520f43b7c6e109  320ms  spans=2  errors=0  warnings=1
 ```
 
 ## Input
