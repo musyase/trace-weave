@@ -4,6 +4,8 @@ Trace Weave turns interleaved span logs into a timeline you can open locally. It
 
 The [sample report](https://musyase.github.io/trace-weave/demo.html) shows a fictional checkout request with a slow payment call and a second trace with a missing parent span. The report is a single HTML file with no scripts, external assets, or server requirement.
 
+![Trace Weave report showing a checkout request timeline](docs/report.jpg)
+
 ## Try it
 
 Requires Go 1.23 or newer. From the repository root:
